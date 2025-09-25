@@ -31,6 +31,10 @@ const MovieDetailsPage: React.FC = () => {
     const isFavorite = currentMovie ? favorites.some((fav: any) => fav.id === currentMovie.id) : false;
 
     useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, [id]);
+
+    useEffect(() => {
         const movieId = Number(id);
 
         if (!movieId || isNaN(movieId)) {
