@@ -22,7 +22,6 @@ const HomePage: React.FC = () => {
           movieService.getUpcoming()
         ]);
 
-        // Limitando a 12 filmes por seção para não sobrecarregar
         setPopularMovies(popularResponse.data.results.slice(0, 12));
         setTopRatedMovies(topRatedResponse.data.results.slice(0, 12));
         setUpcomingMovies(upcomingResponse.data.results.slice(0, 12));

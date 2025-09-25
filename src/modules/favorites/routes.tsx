@@ -1,10 +1,6 @@
 import type { RouteObject } from 'react-router-dom';
 // import FavoritesPage from './Pages/FavoritesPage';
 
-/**
- * Rotas do módulo Favorites
- * Gerencia todas as rotas relacionadas aos filmes favoritos
- */
 export const favoritesRoutes: RouteObject[] = [
   {
     path: '/favorites',

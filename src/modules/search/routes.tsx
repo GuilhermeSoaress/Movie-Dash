@@ -1,10 +1,6 @@
 import type { RouteObject } from 'react-router-dom';
 // import SearchPage from './Pages/SearchPage';
 
-/**
- * Rotas do módulo Search
- * Gerencia todas as rotas relacionadas à busca de filmes
- */
 export const searchRoutes: RouteObject[] = [
   {
     path: '/search',

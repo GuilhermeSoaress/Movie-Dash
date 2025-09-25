@@ -5,28 +5,15 @@ import { movieDetailsRoutes } from '../modules/movie-details/routes';
 import { searchRoutes } from '../modules/search/routes';
 import { favoritesRoutes } from '../modules/favorites/routes';
 
-/**
- * Router principal da aplicação
- * Combina todas as rotas dos módulos em uma única configuração
- */
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Layout />,
     children: [
-      // Rotas do módulo Home
       ...homeRoutes,
-      
-      // Rotas do módulo Movie Details
       ...movieDetailsRoutes,
-      
-      // Rotas do módulo Search
       ...searchRoutes,
-      
-      // Rotas do módulo Favorites
       ...favoritesRoutes,
-      
-      // Rota 404 - deve ficar por último
       {
         path: '*',
         element: (

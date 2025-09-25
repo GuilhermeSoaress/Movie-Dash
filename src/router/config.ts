@@ -1,8 +1,3 @@
-/**
- * Configuração centralizada das rotas da aplicação
- * Similar ao router/index.js do Vue.js
- */
-
 export interface RouteConfig {
   path: string;
   name: string;
@@ -14,10 +9,6 @@ export interface RouteConfig {
   };
 }
 
-/**
- * Definição das rotas da aplicação
- * Facilita manutenção e navegação programática
- */
 export const routes: RouteConfig[] = [
   {
     path: '/',
@@ -57,10 +48,6 @@ export const routes: RouteConfig[] = [
   }
 ];
 
-/**
- * Helper para navegação programática
- * Similar ao $router.push() do Vue
- */
 export const getRoutePath = (name: string, params?: Record<string, string>): string => {
   const route = routes.find(r => r.name === name);
   if (!route) {
@@ -77,7 +64,3 @@ export const getRoutePath = (name: string, params?: Record<string, string>): str
   
   return path;
 };
-
-// Exemplos de uso:
-// getRoutePath('home') → '/'
-// getRoutePath('movieDetails', { id: '123' }) → '/movie/123'

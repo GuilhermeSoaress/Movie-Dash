@@ -1,9 +1,5 @@
 import { Outlet } from 'react-router-dom';
 
-/**
- * Layout principal da aplicação
- * Contém header, footer e área de conteúdo
- */
 const Layout = () => {
   return (
     <div className="bg-slate-900 text-white min-h-screen">
@@ -18,9 +14,9 @@ const Layout = () => {
       </main>
       
       {/* Footer opcional */}
-      {/* <footer className="p-4 bg-slate-800 text-center text-gray-400">
+      <footer className="p-4 bg-slate-800 text-center text-gray-400">
         <p>&copy; 2025 MovieDash. Powered by TMDB.</p>
-      </footer> */}
+      </footer>
     </div>
   );
 };
