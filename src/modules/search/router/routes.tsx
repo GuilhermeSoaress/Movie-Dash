@@ -1,14 +1,13 @@
 import type { RouteObject } from 'react-router-dom';
-// import SearchPage from './Pages/SearchPage';
+import { SearchPage } from '../Pages/SearchPage';
 
 export const searchRoutes: RouteObject[] = [
   {
     path: '/search',
-    // element: <SearchPage />,
-    element: <div>Search Page - Em desenvolvimento</div>,
+    element: <SearchPage />,
     handle: {
-      title: 'Buscar Filmes - MovieDash',
-      description: 'Encontre seus filmes favoritos'
+      title: 'Buscar Filmes - Movie Dashboard',
+      description: 'Encontre seus filmes favoritos no Movie Dashboard'
     }
   }
 ];
