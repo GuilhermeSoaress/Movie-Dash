@@ -1,9 +1,9 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Layout from '../components/Layout';
-import { homeRoutes } from '../modules/home/routes';
-import { movieDetailsRoutes } from '../modules/movie-details/routes';
-import { searchRoutes } from '../modules/search/routes';
-import { favoritesRoutes } from '../modules/favorites/routes';
+import { homeRoutes } from '../modules/home/router/routes';
+import { movieDetailsRoutes } from '../modules/movie-details/router/routes';
+import { searchRoutes } from '../modules/search/router/routes';
+import { favoritesRoutes } from '../modules/favorites/router/routes';
 
 const router = createBrowserRouter([
   {
