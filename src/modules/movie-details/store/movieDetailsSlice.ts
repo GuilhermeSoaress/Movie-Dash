@@ -1,17 +1,18 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { movieService } from '../../home/services/movieService';
-import type { MovieDetails, Credits, Video, Movie } from '../../home/services/movieService';
+import { detailsService } from '../services/detailsService';
+import type { MovieDetails, Credits, Video } from '../types/movieDetails.types';
+import type { Movie } from '../../../shared/types/movie.types';
 
 export const fetchMovieDetails = createAsyncThunk(
     'movieDetails/fetchMovieDetails',
     async (movieId: number) => {
         const [detailsResponse, creditsResponse, videosResponse, similarResponse, recommendationsResponse] = await Promise.all([
-            movieService.getMovieDetails(movieId),
-            movieService.getMovieCredits(movieId),
-            movieService.getMovieVideos(movieId),
-            movieService.getSimilarMovies(movieId),
-            movieService.getRecommendedMovies(movieId),
+            detailsService.getMovieDetails(movieId),
+            detailsService.getMovieCredits(movieId),
+            detailsService.getMovieVideos(movieId),
+            detailsService.getSimilarMovies(movieId),
+            detailsService.getRecommendedMovies(movieId),
         ]);
 
         return {
