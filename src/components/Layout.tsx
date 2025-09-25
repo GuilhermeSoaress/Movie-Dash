@@ -13,7 +13,6 @@ const Layout = () => {
         <Outlet />
       </main>
       
-      {/* Footer opcional */}
       <footer className="p-4 bg-slate-800 text-center text-gray-400">
         <p>&copy; 2025 MovieDash. Powered by TMDB.</p>
       </footer>
