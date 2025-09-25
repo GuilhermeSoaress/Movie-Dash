@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import type { Movie } from '../services/movieService';
 
 interface MovieCardProps {
@@ -11,7 +12,10 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
     : '/placeholder-movie.jpg';
 
   return (
-    <div className="bg-slate-800 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-200 cursor-pointer shadow-lg">
+    <Link
+      to={`/movie/${movie.id}`}
+      className="block bg-slate-800 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-200 cursor-pointer shadow-lg"
+    >
       <div className="relative">
         <img
           src={imageUrl}
@@ -32,7 +36,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
           {new Date(movie.release_date).getFullYear() || 'N/A'}
         </p>
       </div>
-    </div>
+    </Link>
   );
 };
 

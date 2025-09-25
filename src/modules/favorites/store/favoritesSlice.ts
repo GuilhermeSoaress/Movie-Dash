@@ -40,4 +40,16 @@ const favoritesSlice = createSlice({
 });
 
 export const { addToFavorites, removeFromFavorites, clearFavorites } = favoritesSlice.actions;
+
+export const toggleFavorite = (movie: Movie) => (dispatch: any, getState: any) => {
+  const state = getState();
+  const exists = state.favorites.favoriteMovies.find((m: Movie) => m.id === movie.id);
+
+  if (exists) {
+    dispatch(removeFromFavorites(movie.id));
+  } else {
+    dispatch(addToFavorites(movie));
+  }
+};
+
 export default favoritesSlice.reducer;
