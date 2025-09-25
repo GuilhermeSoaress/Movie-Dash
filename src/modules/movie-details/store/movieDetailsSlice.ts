@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { detailsService } from '../services/detailsService';
 import type { MovieDetails, Credits, Video } from '../types/movieDetails.types';
-import type { Movie } from '../../../shared/types/movie.types';
+import type { Movie } from '@/shared/types/movie.types';
 
 export const fetchMovieDetails = createAsyncThunk(
     'movieDetails/fetchMovieDetails',

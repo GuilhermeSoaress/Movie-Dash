@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { homeService } from '../services/homeService';
-import type { Movie } from '../../../shared/types/movie.types';
+import type { Movie } from '@/shared/types/movie.types';
 import MovieSection from '../components/MovieSection';
 import LoadingSpinner from '../../../components/Loading';
 

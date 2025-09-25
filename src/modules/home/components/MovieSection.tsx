@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Movie } from '../../../shared/types/movie.types';
+import type { Movie } from '@/shared/types/movie.types';
 import MovieCard from './MovieCard';
 
 interface MovieSectionProps {

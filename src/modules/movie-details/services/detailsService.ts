@@ -1,5 +1,5 @@
-import api from '../../../shared/services/api';
-import type { TMDBResponse } from '../../../shared/types/movie.types';
+import api from '@/shared/services/api';
+import type { TMDBResponse } from '@/shared/types/movie.types';
 import type { MovieDetails, Credits, VideosResponse } from '../types/movieDetails.types';
 
 export const detailsService = {
