@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import type { Video } from '../../home/services/movieService';
+import type { Video } from '../types/movieDetails.types';
 
 interface MovieTrailersProps {
     videos: Video[];

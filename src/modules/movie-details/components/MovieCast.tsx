@@ -1,5 +1,5 @@
 import React from 'react';
-import type { CastMember } from '../../home/services/movieService';
+import type { CastMember } from '../types/movieDetails.types';
 
 interface MovieCastProps {
     cast: CastMember[];

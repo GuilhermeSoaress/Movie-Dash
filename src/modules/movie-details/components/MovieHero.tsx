@@ -1,5 +1,5 @@
 import React from 'react';
-import type { MovieDetails } from '../../home/services/movieService';
+import type { MovieDetails } from '../types/movieDetails.types';
 
 interface MovieHeroProps {
     movie: MovieDetails;

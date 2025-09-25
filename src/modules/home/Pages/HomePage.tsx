@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { movieService, type Movie } from '../services/movieService';
+import { homeService } from '../services/homeService';
+import type { Movie } from '../../../shared/types/movie.types';
 import MovieSection from '../components/MovieSection';
 import LoadingSpinner from '../../../components/Loading';
 
@@ -17,9 +18,9 @@ const HomePage: React.FC = () => {
         setError(null);
 
         const [popularResponse, topRatedResponse, upcomingResponse] = await Promise.all([
-          movieService.getPopular(),
-          movieService.getTopRated(),
-          movieService.getUpcoming()
+          homeService.getPopular(),
+          homeService.getTopRated(),
+          homeService.getUpcoming()
         ]);
 
         setPopularMovies(popularResponse.data.results.slice(0, 12));
