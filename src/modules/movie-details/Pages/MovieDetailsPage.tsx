@@ -3,7 +3,7 @@ import { useParams, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import type { RootState, AppDispatch } from '../../../store';
 import { fetchMovieDetails, clearMovieDetails } from '../store/movieDetailsSlice';
-import { toggleFavorite } from '../../favorites/store/favoritesSlice';
+
 import MovieHero from '../components/MovieHero';
 import MovieCast from '../components/MovieCast';
 import MovieTrailers from '../components/MovieTrailers';
@@ -24,11 +24,6 @@ const MovieDetailsPage: React.FC = () => {
         error,
         hasFetched
     } = useSelector((state: RootState) => state.movieDetails);
-
-    const favorites = useSelector((state: RootState) => state.favorites.favoriteMovies);
-
-    // Verifica se o filme atual está nos favoritos
-    const isFavorite = currentMovie ? favorites.some((fav: any) => fav.id === currentMovie.id) : false;
 
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -58,23 +53,6 @@ const MovieDetailsPage: React.FC = () => {
             dispatch(clearMovieDetails());
         };
     }, [dispatch]);
-
-    const handleToggleFavorite = () => {
-        if (currentMovie) {
-            const movieData = {
-                id: currentMovie.id,
-                title: currentMovie.title,
-                poster_path: currentMovie.poster_path,
-                backdrop_path: currentMovie.backdrop_path,
-                overview: currentMovie.overview,
-                vote_average: currentMovie.vote_average,
-                release_date: currentMovie.release_date,
-                genre_ids: currentMovie.genres.map(g => g.id),
-            };
-
-            dispatch(toggleFavorite(movieData));
-        }
-    };
 
     // Valida ID
     if (!id || isNaN(Number(id))) {
@@ -132,8 +110,6 @@ const MovieDetailsPage: React.FC = () => {
             {/* Hero Section */}
             <MovieHero
                 movie={currentMovie}
-                onToggleFavorite={handleToggleFavorite}
-                isFavorite={isFavorite}
             />
 
             {/* Cast Section */}

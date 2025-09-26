@@ -1,13 +1,12 @@
 import React from 'react';
 import type { MovieDetails } from '../types/movieDetails.types';
+import { FavoriteButton } from '@/modules/favorites/components/FavoriteButton';
 
 interface MovieHeroProps {
     movie: MovieDetails;
-    onToggleFavorite: () => void;
-    isFavorite: boolean;
 }
 
-const MovieHero: React.FC<MovieHeroProps> = ({ movie, onToggleFavorite, isFavorite }) => {
+const MovieHero: React.FC<MovieHeroProps> = ({ movie }) => {
     const formatRuntime = (minutes: number) => {
         const hours = Math.floor(minutes / 60);
         const mins = minutes % 60;
@@ -101,18 +100,21 @@ const MovieHero: React.FC<MovieHeroProps> = ({ movie, onToggleFavorite, isFavori
 
                         {/* Action Buttons */}
                         <div className="flex flex-wrap gap-4">
-                            <button
-                                onClick={onToggleFavorite}
-                                className={`flex items-center gap-2 px-6 py-3 rounded-lg transition-colors ${isFavorite
-                                        ? 'bg-red-600 hover:bg-red-700 text-white'
-                                        : 'bg-gray-700 hover:bg-gray-600 text-white'
-                                    }`}
-                            >
-                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
-                                </svg>
-                                {isFavorite ? 'Remover dos Favoritos' : 'Adicionar aos Favoritos'}
-                            </button>
+                            <FavoriteButton
+                                movie={{
+                                    id: movie.id,
+                                    title: movie.title,
+                                    poster_path: movie.poster_path,
+                                    backdrop_path: movie.backdrop_path,
+                                    overview: movie.overview,
+                                    release_date: movie.release_date,
+                                    vote_average: movie.vote_average,
+                                    genre_ids: movie.genres?.map(g => g.id) || []
+                                }}
+                                size="lg"
+                                showText={true}
+                                className="bg-gray-700 hover:bg-gray-600"
+                            />
 
                             {movie.homepage && (
                                 <a
