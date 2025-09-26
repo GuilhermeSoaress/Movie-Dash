@@ -1,14 +1,13 @@
 import type { RouteObject } from 'react-router-dom';
-// import FavoritesPage from './Pages/FavoritesPage';
+import { FavoritesPage } from '../Pages/FavoritesPage';
 
 export const favoritesRoutes: RouteObject[] = [
   {
     path: '/favorites',
-    // element: <FavoritesPage />,
-    element: <div>Favorites Page - Em desenvolvimento</div>,
+    element: <FavoritesPage />,
     handle: {
-      title: 'Meus Favoritos - MovieDash',
-      description: 'Seus filmes salvos para assistir depois'
+      title: 'Meus Favoritos - Movie Dashboard',
+      description: 'Seus filmes favoritos salvos para assistir depois'
     }
   }
 ];
