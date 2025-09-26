@@ -5,17 +5,16 @@ import type { Movie } from '@/shared/types/movie.types';
 
 interface MovieCardProps {
   movie: Movie;
-  onRemove: () => void;
 }
 
-const FavoriteMovieCard = ({ movie, onRemove }: MovieCardProps) => {
+const FavoriteMovieCard = ({ movie }: MovieCardProps) => {
   const navigate = useNavigate();
 
-  const imageUrl = movie.poster_path 
+  const imageUrl = movie.poster_path
     ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
     : '/placeholder-poster.jpg';
 
-  const releaseYear = movie.release_date 
+  const releaseYear = movie.release_date
     ? new Date(movie.release_date).getFullYear()
     : 'N/A';
 
@@ -35,7 +34,7 @@ const FavoriteMovieCard = ({ movie, onRemove }: MovieCardProps) => {
           onClick={handleCardClick}
           loading="lazy"
         />
-        
+
         {/* Rating badge */}
         <div className="absolute top-2 left-2 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-sm font-medium">
           ⭐ {rating}
@@ -43,22 +42,22 @@ const FavoriteMovieCard = ({ movie, onRemove }: MovieCardProps) => {
 
         {/* Favorite button */}
         <div className="absolute top-2 right-2">
-          <FavoriteButton 
-            movie={movie} 
+          <FavoriteButton
+            movie={movie}
             size="sm"
           />
         </div>
 
         {/* Hover overlay */}
-        <div 
+        <div
           className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-200 cursor-pointer"
           onClick={handleCardClick}
         />
       </div>
-      
+
       <div className="p-4">
-        <h3 
-          className="font-semibold text-gray-900 mb-1 line-clamp-2 cursor-pointer hover:text-blue-600 transition-colors" 
+        <h3
+          className="font-semibold text-gray-900 mb-1 line-clamp-2 cursor-pointer hover:text-blue-600 transition-colors"
           title={movie.title}
           onClick={handleCardClick}
         >
@@ -108,14 +107,14 @@ export const FavoritesPage = () => {
               Explore filmes e adicione aos seus favoritos clicando no ícone de coração
             </p>
             <div className="space-x-4">
-              <a 
-                href="/" 
+              <a
+                href="/"
                 className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
               >
                 🏠 Ir para Início
               </a>
-              <a 
-                href="/search" 
+              <a
+                href="/search"
                 className="inline-flex items-center px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
               >
                 🔍 Buscar Filmes
@@ -162,7 +161,6 @@ export const FavoritesPage = () => {
             <FavoriteMovieCard
               key={movie.id}
               movie={movie}
-              onRemove={() => {/* handled by FavoriteButton */}}
             />
           ))}
         </div>
