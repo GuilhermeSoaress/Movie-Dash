@@ -15,9 +15,9 @@ const MovieRecommendations: React.FC<MovieRecommendationsProps> = ({ movies, tit
     const displayMovies = movies.slice(0, 12);
 
     return (
-        <section className="py-12 bg-gray-900">
+        <section className="py-12 bg-gray-100 dark:bg-gray-900">
             <div className="container mx-auto px-4">
-                <h2 className="text-3xl font-bold text-white mb-8">{title}</h2>
+                <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">{title}</h2>
 
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
                     {displayMovies.map((movie) => (
@@ -63,7 +63,7 @@ const MovieRecommendations: React.FC<MovieRecommendationsProps> = ({ movies, tit
 
                 {movies.length > 12 && (
                     <div className="text-center mt-8">
-                        <p className="text-gray-400 text-sm">
+                        <p className="text-gray-500 dark:text-gray-400 text-sm">
                             Mostrando 12 de {movies.length} filmes recomendados
                         </p>
                     </div>

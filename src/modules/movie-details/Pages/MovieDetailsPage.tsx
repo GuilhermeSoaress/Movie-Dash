@@ -67,13 +67,13 @@ const MovieDetailsPage: React.FC = () => {
     // Error state
     if (error) {
         return (
-            <div className="min-h-screen bg-black flex items-center justify-center">
+            <div className="min-h-screen bg-black dark:bg-gray-900 flex items-center justify-center">
                 <div className="text-center">
-                    <h1 className="text-4xl font-bold text-red-400 mb-4">Ops!</h1>
-                    <p className="text-gray-300 mb-8">{error}</p>
+                    <h1 className="text-4xl font-bold text-red-400 dark:text-red-300 mb-4">Ops!</h1>
+                    <p className="text-gray-300 dark:text-gray-400 mb-8">{error}</p>
                     <a
                         href="/"
-                        className="px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors inline-block"
+                        className="px-6 py-3 bg-red-600 hover:bg-red-700 dark:bg-red-500 dark:hover:bg-red-600 text-white rounded-lg transition-colors inline-block"
                     >
                         Voltar ao Início
                     </a>
@@ -85,13 +85,13 @@ const MovieDetailsPage: React.FC = () => {
     // Movie not found
     if (!currentMovie && hasFetched) {
         return (
-            <div className="min-h-screen bg-black flex items-center justify-center">
+            <div className="min-h-screen bg-black dark:bg-gray-900 flex items-center justify-center">
                 <div className="text-center">
-                    <h1 className="text-4xl font-bold text-red-400 mb-4">Filme não encontrado</h1>
-                    <p className="text-gray-300 mb-8">O filme que você procura não existe ou foi removido.</p>
+                    <h1 className="text-4xl font-bold text-red-400 dark:text-red-300 mb-4">Filme não encontrado</h1>
+                    <p className="text-gray-300 dark:text-gray-400 mb-8">O filme que você procura não existe ou foi removido.</p>
                     <a
                         href="/"
-                        className="px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors inline-block"
+                        className="px-6 py-3 bg-red-600 hover:bg-red-700 dark:bg-red-500 dark:hover:bg-red-600 text-white rounded-lg transition-colors inline-block"
                     >
                         Voltar ao Início
                     </a>
@@ -106,7 +106,7 @@ const MovieDetailsPage: React.FC = () => {
     }
 
     return (
-        <div className="min-h-screen bg-black">
+        <div className="min-h-screen bg-black dark:bg-gray-900">
             {/* Hero Section */}
             <MovieHero
                 movie={currentMovie}

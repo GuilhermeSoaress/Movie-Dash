@@ -35,7 +35,7 @@ const MovieHero: React.FC<MovieHeroProps> = ({ movie }) => {
                     backgroundImage: `url(https://image.tmdb.org/t/p/original${movie.backdrop_path})`,
                 }}
             >
-                <div className="absolute inset-0 bg-black bg-opacity-70"></div>
+                <div className="absolute inset-0 bg-black bg-opacity-70 dark:bg-opacity-80"></div>
             </div>
 
             {/* Content */}
@@ -51,13 +51,13 @@ const MovieHero: React.FC<MovieHeroProps> = ({ movie }) => {
                     </div>
 
                     {/* Movie Info */}
-                    <div className="flex-1 text-white">
+                    <div className="flex-1 text-white dark:text-gray-100">
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
                             {movie.title}
                         </h1>
 
                         {movie.tagline && (
-                            <p className="text-xl text-gray-300 italic mb-6">{movie.tagline}</p>
+                            <p className="text-xl text-gray-300 dark:text-gray-200 italic mb-6">{movie.tagline}</p>
                         )}
 
                         {/* Movie Meta */}
@@ -76,7 +76,7 @@ const MovieHero: React.FC<MovieHeroProps> = ({ movie }) => {
                             <span>{formatRuntime(movie.runtime)}</span>
 
                             <span>•</span>
-                            <span className="px-2 py-1 bg-gray-700 rounded text-xs">
+                            <span className="px-2 py-1 bg-gray-700 dark:bg-gray-600 rounded text-xs">
                                 {movie.status}
                             </span>
                         </div>
@@ -121,7 +121,7 @@ const MovieHero: React.FC<MovieHeroProps> = ({ movie }) => {
                                     href={movie.homepage}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+                                    className="flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white rounded-lg transition-colors"
                                 >
                                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -136,13 +136,13 @@ const MovieHero: React.FC<MovieHeroProps> = ({ movie }) => {
                             <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
                                 {movie.budget > 0 && (
                                     <div>
-                                        <h3 className="text-sm font-semibold text-gray-400 mb-1">Orçamento</h3>
+                                        <h3 className="text-sm font-semibold text-gray-400 dark:text-gray-300 mb-1">Orçamento</h3>
                                         <p className="text-lg">{formatCurrency(movie.budget)}</p>
                                     </div>
                                 )}
                                 {movie.revenue > 0 && (
                                     <div>
-                                        <h3 className="text-sm font-semibold text-gray-400 mb-1">Bilheteria</h3>
+                                        <h3 className="text-sm font-semibold text-gray-400 dark:text-gray-300 mb-1">Bilheteria</h3>
                                         <p className="text-lg">{formatCurrency(movie.revenue)}</p>
                                     </div>
                                 )}

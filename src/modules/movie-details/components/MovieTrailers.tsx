@@ -23,9 +23,9 @@ const MovieTrailers: React.FC<MovieTrailersProps> = ({ videos }) => {
 
     return (
         <>
-            <section className="py-12 bg-black">
+            <section className="py-12 bg-gray-50 dark:bg-black">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl font-bold text-white mb-8">Trailers e Teasers</h2>
+                    <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">Trailers e Teasers</h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {trailers.map((video) => (
@@ -52,10 +52,10 @@ const MovieTrailers: React.FC<MovieTrailersProps> = ({ videos }) => {
                                 </div>
 
                                 <div className="mt-3">
-                                    <h3 className="text-white font-semibold text-sm line-clamp-2">
+                                    <h3 className="text-gray-900 dark:text-white font-semibold text-sm line-clamp-2">
                                         {video.name}
                                     </h3>
-                                    <p className="text-gray-400 text-xs mt-1">
+                                    <p className="text-gray-600 dark:text-gray-400 text-xs mt-1">
                                         {video.type} • YouTube
                                     </p>
                                 </div>

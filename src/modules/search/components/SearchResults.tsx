@@ -21,7 +21,7 @@ const MovieCard = ({ movie, onClick }: MovieCardProps) => {
   return (
     <div 
       onClick={onClick}
-      className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer transform hover:scale-105 transition-transform duration-200 hover:shadow-lg"
+      className="bg-white dark:bg-gray-800 rounded-lg shadow-md dark:shadow-slate-900/50 overflow-hidden cursor-pointer transform hover:scale-105 transition-transform duration-200 hover:shadow-lg dark:hover:shadow-xl"
     >
       <div className="aspect-[2/3] relative">
         <img
@@ -36,13 +36,13 @@ const MovieCard = ({ movie, onClick }: MovieCardProps) => {
       </div>
       
       <div className="p-4">
-        <h3 className="font-semibold text-gray-900 mb-1 line-clamp-2" title={movie.title}>
+        <h3 className="font-semibold text-gray-900 dark:text-white mb-1 line-clamp-2" title={movie.title}>
           {movie.title}
         </h3>
-        <p className="text-gray-600 text-sm">
+        <p className="text-gray-600 dark:text-gray-300 text-sm">
           {releaseYear}
         </p>
-        <p className="text-gray-500 text-xs mt-2 line-clamp-3">
+        <p className="text-gray-500 dark:text-gray-400 text-xs mt-2 line-clamp-3">
           {movie.overview}
         </p>
       </div>
@@ -64,8 +64,8 @@ export const SearchResults = () => {
     return (
       <div className="flex justify-center items-center py-12">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4"></div>
-          <p className="text-gray-600">Buscando filmes...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 dark:border-blue-400 mx-auto mb-4"></div>
+          <p className="text-gray-600 dark:text-gray-300">Buscando filmes...</p>
         </div>
       </div>
     );
@@ -74,13 +74,13 @@ export const SearchResults = () => {
   if (error) {
     return (
       <div className="text-center py-12">
-        <div className="text-red-500 mb-4">
+        <div className="text-red-500 dark:text-red-400 mb-4">
           <svg className="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
           </svg>
         </div>
-        <p className="text-gray-600 text-lg mb-2">Ops! Algo deu errado</p>
-        <p className="text-gray-500">{error}</p>
+        <p className="text-gray-600 dark:text-gray-300 text-lg mb-2">Ops! Algo deu errado</p>
+        <p className="text-gray-500 dark:text-gray-400">{error}</p>
       </div>
     );
   }
@@ -88,13 +88,13 @@ export const SearchResults = () => {
   if (hasSearched && results.length === 0 && query) {
     return (
       <div className="text-center py-12">
-        <div className="text-gray-400 mb-4">
+        <div className="text-gray-400 dark:text-gray-500 mb-4">
           <svg className="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
         </div>
-        <p className="text-gray-600 text-lg mb-2">Nenhum filme encontrado</p>
-        <p className="text-gray-500">Tente buscar com outras palavras-chave</p>
+        <p className="text-gray-600 dark:text-gray-300 text-lg mb-2">Nenhum filme encontrado</p>
+        <p className="text-gray-500 dark:text-gray-400">Tente buscar com outras palavras-chave</p>
       </div>
     );
   }
@@ -102,13 +102,13 @@ export const SearchResults = () => {
   if (!hasSearched) {
     return (
       <div className="text-center py-12">
-        <div className="text-gray-400 mb-4">
+        <div className="text-gray-400 dark:text-gray-500 mb-4">
           <svg className="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
         </div>
-        <p className="text-gray-600 text-lg mb-2">Procure por seus filmes favoritos</p>
-        <p className="text-gray-500">Digite o nome de um filme para começar a busca</p>
+        <p className="text-gray-600 dark:text-gray-300 text-lg mb-2">Procure por seus filmes favoritos</p>
+        <p className="text-gray-500 dark:text-gray-400">Digite o nome de um filme para começar a busca</p>
       </div>
     );
   }
@@ -117,7 +117,7 @@ export const SearchResults = () => {
     <div className="space-y-6">
       {/* Results Info */}
       <div className="text-center">
-        <p className="text-gray-600">
+        <p className="text-gray-600 dark:text-gray-300">
           {totalResults > 0 && (
             <>
               <span className="font-semibold">{totalResults}</span> resultado{totalResults !== 1 ? 's' : ''} encontrado{totalResults !== 1 ? 's' : ''} para{' '}

@@ -11,7 +11,7 @@ interface MovieSectionProps {
 const MovieSection: React.FC<MovieSectionProps> = ({ title, movies, icon = "🎬" }) => {
     return (
         <section className="mb-8">
-            <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+            <h2 className="text-2xl font-bold mb-6 flex items-center gap-2 text-gray-900 dark:text-white">
                 <span>{icon}</span>
                 {title}
             </h2>
@@ -23,7 +23,7 @@ const MovieSection: React.FC<MovieSectionProps> = ({ title, movies, icon = "🎬
             </div>
 
             {movies.length === 0 && (
-                <p className="text-gray-400 text-center py-8">Nenhum filme encontrado</p>
+                <p className="text-gray-400 dark:text-gray-500 text-center py-8">Nenhum filme encontrado</p>
             )}
         </section>
     );

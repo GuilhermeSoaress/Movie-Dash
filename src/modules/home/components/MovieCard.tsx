@@ -14,7 +14,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
   return (
     <Link
       to={`/movie/${movie.id}`}
-      className="block bg-slate-800 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-200 cursor-pointer shadow-lg"
+      className="block bg-slate-800 dark:bg-slate-700 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-200 cursor-pointer shadow-lg hover:shadow-xl dark:shadow-slate-900/50"
     >
       <div className="relative">
         <img
@@ -29,10 +29,10 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
       </div>
 
       <div className="p-3">
-        <h3 className="font-semibold text-sm truncate mb-1" title={movie.title}>
+        <h3 className="font-semibold text-sm truncate mb-1 text-white dark:text-gray-100" title={movie.title}>
           {movie.title}
         </h3>
-        <p className="text-xs text-gray-400">
+        <p className="text-xs text-gray-400 dark:text-gray-300">
           {new Date(movie.release_date).getFullYear() || 'N/A'}
         </p>
       </div>
