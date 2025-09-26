@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Movie } from '@/shared/types/movie.types';
-import MovieCard from './MovieCard';
+import MorphingMovieCard from './MorphingMovieCard';
 
 interface MovieSectionProps {
     title: string;
@@ -18,7 +18,7 @@ const MovieSection: React.FC<MovieSectionProps> = ({ title, movies, icon = "🎬
 
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
                 {movies.map((movie) => (
-                    <MovieCard key={movie.id} movie={movie} />
+                    <MorphingMovieCard key={movie.id} movie={movie} />
                 ))}
             </div>
 
