@@ -3,6 +3,7 @@ import { homeService } from '../services/homeService';
 import type { Movie } from '@/shared/types/movie.types';
 import MovieSection from '../components/MovieSection';
 import LoadingSpinner from '../../../components/Loading';
+import ParallaxHeroSection from '../components/ParallaxHeroSection';
 
 const HomePage: React.FC = () => {
   const [popularMovies, setPopularMovies] = useState<Movie[]>([]);
@@ -60,14 +61,12 @@ const HomePage: React.FC = () => {
   }
 
   return (
-    <div className="space-y-8">
-      {/* Hero Section */}
-      <div className="text-center py-8 bg-gradient-to-r from-slate-800 to-slate-700 rounded-lg">
-        <h1 className="text-4xl font-bold mb-2">Bem-vindo ao MovieDash</h1>
-        <p className="text-gray-300">Descubra, explore e organize seus filmes favoritos</p>
-      </div>
+    <div>
+      {/* Parallax Hero Section */}
+      <ParallaxHeroSection />
 
       {/* Seções de Filmes */}
+      <div className="space-y-8 px-4 py-8">
       <MovieSection 
         title="Filmes Populares" 
         movies={popularMovies}
@@ -85,6 +84,7 @@ const HomePage: React.FC = () => {
         movies={upcomingMovies}
         icon="🎭"
       />
+      </div>
     </div>
   );
 };

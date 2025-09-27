@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Movie } from '@/shared/types/movie.types';
@@ -10,16 +10,29 @@ interface MorphingMovieCardProps {
 const MorphingMovieCard: React.FC<MorphingMovieCardProps> = ({ movie }) => {
     const [isHovered, setIsHovered] = useState(false);
 
-    const posterUrl = movie.poster_path
-        ? `https://image.tmdb.org/t/p/w300${movie.poster_path}`
-        : '/placeholder-movie.jpg';
+    // Memoize expensive calculations
+    const { posterUrl, backdropUrl, releaseYear, rating } = useMemo(() => {
+        const poster = movie.poster_path
+            ? `https://image.tmdb.org/t/p/w300${movie.poster_path}`
+            : '/placeholder-movie.jpg';
 
-    const backdropUrl = movie.backdrop_path
-        ? `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`
-        : posterUrl;
+        const backdrop = movie.backdrop_path
+            ? `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`
+            : poster;
 
-    const releaseYear = new Date(movie.release_date).getFullYear() || 'N/A';
-    const rating = movie.vote_average.toFixed(1);
+        const year = movie.release_date 
+            ? new Date(movie.release_date).getFullYear()
+            : 'N/A';
+
+        const rate = movie.vote_average ? movie.vote_average.toFixed(1) : '0.0';
+
+        return {
+            posterUrl: poster,
+            backdropUrl: backdrop,
+            releaseYear: year,
+            rating: rate
+        };
+    }, [movie.poster_path, movie.backdrop_path, movie.release_date, movie.vote_average]);
 
     return (
         <motion.div
@@ -30,6 +43,7 @@ const MorphingMovieCard: React.FC<MorphingMovieCardProps> = ({ movie }) => {
                 scale: 1.05,
                 rotateY: 5,
                 rotateX: 5,
+                boxShadow: "0 20px 40px rgba(0,0,0,0.3), 0 0 20px rgba(59, 130, 246, 0.2)"
             }}
             transition={{
                 type: "spring",
@@ -39,6 +53,11 @@ const MorphingMovieCard: React.FC<MorphingMovieCardProps> = ({ movie }) => {
             style={{
                 transformStyle: "preserve-3d",
                 perspective: "1000px"
+            }}
+            animate={{
+                boxShadow: isHovered 
+                    ? "0 20px 40px rgba(0,0,0,0.3), 0 0 20px rgba(59, 130, 246, 0.2)"
+                    : "0 4px 6px rgba(0,0,0,0.1)"
             }}
         >
             <Link to={`/movie/${movie.id}`} className="block">
